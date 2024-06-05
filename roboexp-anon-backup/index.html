@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="RoboEXP: Action-Conditioned Scene Graph via Interactive Exploration for Robotic Manipulation">
+  <meta name="keywords" content="Interactive Exploration, Action-Conditioned Scene Graph">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboEXP</title>
+
+  <script>
+
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+      console.log("interactive", task)
+
+      // if task does not contain the string "towel"
+      if (task.indexOf("towel") == -1) {
+        var video = document.getElementById("interactive-video");
+        video.src = "media/videos/" +
+          task +
+          ".mp4"
+        video.play();
+
+        var html = document.getElementById("interactive-html-1");
+        html.src = "media/interactive/" +
+          task +
+          ".html"
+
+        // hide the second iframe container
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "none";
+      } else {
+        var video = document.getElementById("interactive-video");
+        video.src = "media/videos/hang-towel.mp4"
+        video.play();
+
+        var html1 = document.getElementById("interactive-html-1");
+        html1.src = "media/interactive/hang-towel-1.html"
+
+        // show and set the source for the second iframe
+        var html2 = document.getElementById("interactive-html-2");
+        html2.src = "media/interactive/hang-towel-2.html"
+
+        // show the second iframe container
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "block";
+      }
+    }
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body onload="updateInteractive();">
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-fullhd">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">RoboEXP: Action-Conditioned Scene Graph via Interactive Exploration
+              for Robotic Manipulation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Anonymous Submission
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser" style="position: relative; top: -30px">
+    <div class="container is-fullhd">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered  is-centered">
+            <video id="teaser_video" autoplay muted loop height="80%" width="80%">
+              <source src="media/videos/teaser_video.mp4" type="video/mp4">
+          </div>
+          <h2 class="subtitle has-text-centered" style="position: relative; top: -20px">
+            <span class="dperact">RoboEXP</span> constructs the <b>Action-Conditioned Scene Graph (ACSG)</b> during the
+            <b>interactive exploration</b> process, <br>which is utilized for the robot to complete the downstream task
+            of making the table.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero is-light is-small" style="position: relative; top: -50px">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <video poster="" autoplay muted loop height="100%">
+              <source src="media/videos/exp-exp.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay muted loop height="100%">
+              <source src="media/videos/recur-1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay muted loop height="100%">
+              <source src="media/videos/obstruction.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay muted loop height="100%">
+              <source src="media/videos/recur-2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay muted loop height="100%">
+              <source src="media/videos/intervention_2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video poster="" autoplay muted loop height="100%">
+              <source src="media/videos/intervention_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <h2 class="subtitle has-text-centered" style="position: relative; top: -50px">
+    </br>
+    RoboEXP can <b>zero-shot explore</b> various real-world settings, <br> demonstrating its effectiveness in
+    <b>exploring</b> and <b>modeling</b> environments it has never seen before.
+  </h2>
+
+
+  <section class="section" style="position: relative; top: -50px">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Robots need to explore their surroundings to adapt to and tackle tasks in unknown environments. Prior work
+              has proposed building scene graphs of the environment but typically assumes that the environment is
+              static, omitting regions that require active interactions. This severely limits their ability to handle
+              more complex tasks in household and office environments: before setting up a table, robots must explore
+              drawers and cabinets to locate all utensils and condiments.
+              In this work, we introduce the novel task of interactive scene exploration, wherein robots autonomously
+              explore environments and produce an action-conditioned scene graph (ACSG) that captures the structure of
+              the underlying environment. The ACSG accounts for both low-level information, such as geometry and
+              semantics, and high-level information, such as the action-conditioned relationships between different
+              entities in the scene. To this end, we present the Robotic Exploration (RoboEXP) system, which
+              incorporates the Large Multimodal Model (LMM) and an explicit memory design to enhance our system's
+              capabilities. The robot reasons about what and how to explore an object, accumulating new information
+              through the interaction process and incrementally constructing the ACSG.
+              We apply our system across various real-world settings in a zero-shot manner, demonstrating its
+              effectiveness in exploring and modeling environments it has never seen before. Leveraging the constructed
+              ACSG, we illustrate the effectiveness and efficiency of our RoboEXP system in facilitating a wide range of
+              real-world manipulation tasks involving rigid, articulated objects, nested objects like Matryoshka dolls,
+              and deformable objects like cloth.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+    </div>
+
+
+  </section>
+
+  <section class="section" style="position: relative; top: -100px">
+    <div class="container is-max-widescreen">
+
+      <div class="rows">
+
+
+        <!-- Animation. -->
+        <div class="rows is-centered ">
+          <div class="row is-full-width">
+            <h2 class="title is-3"><span class="dperact">Interactive Exploration</span></h2>
+
+            <div class="column has-text-centered"><video id="sg" autoplay muted loop
+                style="position: relative; top: 0px" height="80%" width="80%">
+                <source src="media/videos/sg_final.mp4" type="video/mp4">
+            </div>
+
+            <div class="column has-text-centered">
+              <iframe id="interactive-html-1" src="media/interactive/output.html" width=1000pt height=400pt
+                frameborder="0"></iframe>
+              <p style="text-align:center;">
+                Low-level Memory
+              </p>
+            </div>
+
+            </br>
+            </br>
+            <p class="content has-text-justified">
+              We formulate <b>interactive exploration</b> as an <b>action-conditioned 3D scene graph (ACSG)</b>
+              construction and traversal problem.
+              Our ACSG is an actionable, spatial-topological representation that models objects and their interactive
+              and spatial relations in a scene, capturing both the high-level graph <b>(c)</b> and corresponding
+              low-level memory <b>(b)</b>.
+            </p>
+
+            </br>
+            </br>
+
+            <h2 class="title is-3"><span class="dperact">RoboEXP</span></h2>
+
+            <!-- Interpolating. -->
+            <div class="content has-text-justified">
+              <!-- <br> -->
+            </div>
+            <div style="text-align: center;">
+              <img src="media/figures/pipeline.png" class="interpolation-image" width="80%" height="80%" />
+            </div>
+            </br>
+            </br>
+            <p class="content has-text-justified">
+              Our RoboEXP system comprises four modules. With RGB-D observations as input, our perception module
+              <b>(a)</b> and memory module <b>(b)</b> construct our ACSG leveraging the vision foundation models and our
+              explicit memory design. The ACSG is then utilized by the decision-making module <b>(c)</b> to generate
+              exploration plans, and the action module <b>(d)</b> executes them.
+            </p>
+          </div>
+        </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-widescreen" style="position: relative; top: -100px">
+
+      <div class="rows">
+        <h2 class="title is-3">Exploration with Human Interventions</h2>
+
+        <p class="content has-text-justified">
+          Our RoboEXP system is capable of handling human interventions during the exploration process. Our system can
+          automatically detect new objects and explore them when necessary. Additionally, our system can also track hand
+          position to identify the areas that need to be reexplored.
+        </p>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <video id="dist1" controls muted autoplay loop width="99%">
+              <source src="media/videos/final_video_intervention_2.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center">
+              "Position a cabinet on the table."
+            </p>
+          </div>
+
+          <div class="column has-text-centered">
+            <video id="dist2" controls muted autoplay loop width="99%">
+              <source src="media/videos/final_video_intervention_1.mp4" type="video/mp4">
+            </video>
+            "Take the orange out of the left door and place a coke in the right door."
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen" style="position: relative; top: -100px">
+
+      <div class="rows">
+        <h2 class="title is-3">More Results with Diverse Settings</h2>
+        <p class="content has-text-justified">
+        <p class="content has-text-justified">
+          We display more results with varied numbers of objects, types, and layouts in our experimental settings.
+        </p>
+        </p>
+        <div class="columns is-vcentered  is-centered">
+          <video id="other_results" autoplay muted loop style="position: relative; top: 30px" height="98%" width="98%">
+            <source src="media/videos/other_results.mp4" type="video/mp4">
+        </div>
+      </div>
+  </section>
+
+
+
+</body>
+
+</html>
