@@ -96,7 +96,7 @@
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered  is-centered">
-            <video id="teaser_video" autoplay muted loop height="80%" width="80%">
+            <video id="teaser_video" autoplay muted loop preload height="80%" width="80%">
               <source src="media/videos/teaser_video.mp4" type="video/mp4">
           </div>
           <h2 class="subtitle has-text-centered" style="position: relative; top: -20px">
@@ -114,22 +114,22 @@
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-            <video poster="" autoplay muted loop height="100%">
+            <video poster="" autoplay muted loop preload height="100%">
               <source src="media/videos/exp-exp.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item">
-            <video poster="" autoplay muted loop height="100%">
+            <video poster="" autoplay muted loop preload height="100%">
               <source src="media/videos/recur-1.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item">
-            <video poster="" autoplay muted loop height="100%">
+            <video poster="" autoplay muted loop preload height="100%">
               <source src="media/videos/obstruction.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item">
-            <video poster="" autoplay muted loop height="100%">
+            <video poster="" autoplay muted loop preload height="100%">
               <source src="media/videos/recur-2.mp4" type="video/mp4">
             </video>
           </div>
@@ -162,24 +162,8 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Robots need to explore their surroundings to adapt to and tackle tasks in unknown environments. Prior work
-              has proposed building scene graphs of the environment but typically assumes that the environment is
-              static, omitting regions that require active interactions. This severely limits their ability to handle
-              more complex tasks in household and office environments: before setting up a table, robots must explore
-              drawers and cabinets to locate all utensils and condiments.
-              In this work, we introduce the novel task of interactive scene exploration, wherein robots autonomously
-              explore environments and produce an action-conditioned scene graph (ACSG) that captures the structure of
-              the underlying environment. The ACSG accounts for both low-level information, such as geometry and
-              semantics, and high-level information, such as the action-conditioned relationships between different
-              entities in the scene. To this end, we present the Robotic Exploration (RoboEXP) system, which
-              incorporates the Large Multimodal Model (LMM) and an explicit memory design to enhance our system's
-              capabilities. The robot reasons about what and how to explore an object, accumulating new information
-              through the interaction process and incrementally constructing the ACSG.
-              We apply our system across various real-world settings in a zero-shot manner, demonstrating its
-              effectiveness in exploring and modeling environments it has never seen before. Leveraging the constructed
-              ACSG, we illustrate the effectiveness and efficiency of our RoboEXP system in facilitating a wide range of
-              real-world manipulation tasks involving rigid, articulated objects, nested objects like Matryoshka dolls,
-              and deformable objects like cloth.
+              We introduce the novel task of interactive scene exploration, wherein robots autonomously explore environments and produce an action-conditioned scene graph (ACSG) that captures the structure of the underlying environment. The ACSG accounts for both low-level information (geometry and semantics) and high-level information (action-conditioned relationships between different entities) in the scene. To this end, we present the Robotic Exploration (RoboEXP) system, which incorporates the Large Multimodal Model (LMM) and an explicit memory design to enhance our system's capabilities. The robot reasons about what and how to explore an object, accumulating new information through the interaction process and incrementally constructing the ACSG.
+Leveraging the constructed ACSG, we illustrate the effectiveness and efficiency of our RoboEXP system in facilitating a wide range of real-world manipulation tasks involving rigid, articulated objects, nested objects, and deformable objects.
             </p>
           </div>
         </div>
@@ -202,7 +186,7 @@
           <div class="row is-full-width">
             <h2 class="title is-3"><span class="dperact">Interactive Exploration</span></h2>
 
-            <div class="column has-text-centered"><video id="sg" autoplay muted loop
+            <div class="column has-text-centered"><video id="sg" autoplay muted loop preload
                 style="position: relative; top: 0px" height="80%" width="80%">
                 <source src="media/videos/sg_final.mp4" type="video/mp4">
             </div>
@@ -268,7 +252,7 @@
               <source src="media/videos/final_video_intervention_2.mp4" type="video/mp4">
             </video>
             <p style="text-align:center">
-              "Position a cabinet on the table."
+              Intervention: A person positions a cabinet on the table.
             </p>
           </div>
 
@@ -276,7 +260,7 @@
             <video id="dist2" controls muted autoplay loop width="99%">
               <source src="media/videos/final_video_intervention_1.mp4" type="video/mp4">
             </video>
-            "Take the orange out of the left door and place a coke in the right door."
+            Intervention: A person takes the orange out of the left door and places a coke in the right door.
           </div>
         </div>
       </div>
@@ -289,7 +273,7 @@
         <h2 class="title is-3">Extension to Mobile Robot</h2>
 
         <p class="content has-text-justified">
-          Our interactive exploration pipeline can be deployed on the Stretch robot for scene-level exploration.
+          Our interactive exploration pipeline can be deployed on the Stretch robot for household scenarios.
         </p>
 
         <div class="columns">
@@ -298,7 +282,7 @@
               <source src="media/videos/sg_stretch_drawer.mp4" type="video/mp4">
             </video>
             <p style="text-align:center">
-              "Explore what's in the drawer."
+              A mobile robot explores the drawers to see what's inside them.
             </p>
           </div>
 
@@ -306,7 +290,7 @@
             <video id="dist2" controls muted autoplay loop width="99%">
               <source src="media/videos/sg_stretch_pick.mp4" type="video/mp4">
             </video>
-            "Explore what's under the cloth."
+            A mobile robot explores the cloth to see what's underneath.
           </div>
         </div>
       </div>
